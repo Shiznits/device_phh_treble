@@ -8,16 +8,16 @@ fi
 echo 'PRODUCT_MAKEFILES := \' > AndroidProducts.mk
 
 for part in a ab;do
-	for apps in vanilla gapps foss;do
+	for apps in vanilla gapps_pe foss;do
 		for arch in arm64 arm;do
 			for su in yes no;do
 				apps_suffix=""
 				apps_script=""
 				apps_name=""
 				extra_packages=""
-				if [ "$apps" == "gapps" ];then
+				if [ "$apps" == "gapps_pe" ];then
 					apps_suffix="g"
-					apps_script='$(call inherit-product, device/phh/treble/gapps.mk)'
+					apps_script='$(call inherit-product, device/phh/treble/gapps_pe.mk)'
 					apps_name="with GApps"
 				fi
 				if [ "$apps" == "foss" ];then
@@ -55,6 +55,7 @@ PRODUCT_NAME := $target
 PRODUCT_DEVICE := phhgsi_${arch}_$part
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := Phh-Treble $apps_name
+TARGET_ARCH := ${arch}
 
 PRODUCT_PACKAGES += $extra_packages
 EOF

@@ -8,5 +8,6 @@ PRODUCT_NAME := treble_arm_afN
 PRODUCT_DEVICE := phhgsi_arm_a
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := Phh-Treble with FOSS apps
+TARGET_ARCH := arm
 
 PRODUCT_PACKAGES += 
